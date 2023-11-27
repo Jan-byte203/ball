@@ -1,0 +1,21 @@
+#info {
+    position: absolute;
+    top: 50%;
+    left: 51%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    z-index: 100;
+    display: block;
+    font-size: 3em; /* Adjust this value to change the size of the text */
+    color: #ffffff; /* Adjust this value to change the color of the text */
+    letter-spacing: 1em; /* Adjust this value to change the space between characters */
+}
+
+.cerebro-text {
+    color: #FFFF00; /* Yellow text */
+    text-shadow: 0 0 10px #FFFF00, /* Yellow glow */
+                 0 0 20px #FFFF00,
+                 0 0 30px #FFFF00,
+                 0 0 40px #FFFF00;
+  }
