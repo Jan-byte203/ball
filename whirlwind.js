@@ -16,7 +16,7 @@ var sphereTexture = textureLoader.load('red-scifi-metal_metallic.png');
 
 // Create a transparent spherical ball with the texture
 var sphereGeometry = new THREE.SphereGeometry(1, 32, 32); // ball size moon
-var sphereMaterial = new THREE.MeshBasicMaterial({map: sphereTexture, transparent: true, opacity: 0.5});
+var sphereMaterial = new THREE.MeshBasicMaterial({map: sphereTexture, transparent: true, opacity: 0});
 var sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
 scene.add(sphere);
 
@@ -38,8 +38,8 @@ for (var j = 0; j < 5; j++) {
   particleGeometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
 
   var particleMaterial = new THREE.PointsMaterial({
-    color: 0xFFFFFF,
-    size: 0.4, // Make the particles smaller
+    color: 0xADD8E6, // dust color 2 // blue: 0x6A5ACD  // matrix green 0x00FF00 // inverse pink: 
+    size: 0.5, // Make the particles smaller
     blending: THREE.AdditiveBlending,
     transparent: true
   });
@@ -53,7 +53,7 @@ for (var j = 0; j < 5; j++) {
 var glowGeometry = new THREE.BufferGeometry();
 var glowPositions = [];
 for (var i = 0; i < 1000; i++) {
-  var radius = 150 + Math.random() * 10;
+  var radius = 350 + Math.random() * 10;
   var theta = Math.random() * 2 * Math.PI;
   var phi = Math.random() * 2 * Math.PI;
   glowPositions.push(
@@ -65,7 +65,7 @@ for (var i = 0; i < 1000; i++) {
 glowGeometry.setAttribute('position', new THREE.Float32BufferAttribute(glowPositions, 3));
 
 var glowMaterial = new THREE.PointsMaterial({
-  color: 0xFFFF00,
+  color: 0x8B3A62, //dust color
   size: 1,
   blending: THREE.AdditiveBlending,
   transparent: true
@@ -110,7 +110,7 @@ function animate() {
 
   // Gradually make the lines visible
   if (Date.now() - lastLineTime > 100) { // This condition is true approximately every 0.5 seconds
-    lineMaterial.opacity = (Math.sin(Date.now() * 0.0005) + 1) / 7; // Use the sine function to adjust the opacity
+    lineMaterial.opacity = (Math.sin(Date.now() * 0.0005) + 1) / 6; // Use the sine function to adjust the opacity
     lineMaterial.needsUpdate = true;
     lastLineTime = Date.now();
   }
